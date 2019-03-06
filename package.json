@@ -1,17 +1,22 @@
 {
   "name": "api-player",
   "version": "0.1.0",
+  "main": "public/main.js",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "electron": "^4.0.6",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "react-sound": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron ."
   },
   "eslintConfig": {
     "extends": "react-app"
