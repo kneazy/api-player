@@ -7,7 +7,7 @@ class SoundControl extends Component {
 
   handleSongLoading = e =>{
     if (e.buffered[0]) {
-      let buffered = e.buffered[0].end / 300
+      let buffered = e.buffered[0].end / 53
       if(buffered <= 106) {
         this.props.progressBarData(buffered)
       }
@@ -15,8 +15,7 @@ class SoundControl extends Component {
   }
 
   render() {
-      const { control, stream, volume, spotifyUrl } = this.props
-      console.log(spotifyUrl)
+      const { control, stream, volume } = this.props
       return (
       <div>
         <Sound
@@ -31,10 +30,8 @@ class SoundControl extends Component {
 }
 
 const putStateToProps = state => {
-  console.log(state.stationsState.spotifyUrlData)
   return{
     volume: state.controlsDataState.volume,
-    spotifyUrl: state.stationsState.spotifyUrlData
   }
 };
 

@@ -39,7 +39,7 @@ html, body {
 .songs-items {
   position: absolute;
   bottom: 22px;
-  width: 45%;
+  width: 50%;
   right: 0px;
   padding-top: 10px;
   background: #000;
@@ -63,9 +63,7 @@ html, body {
   border-bottom: 1px solid #1c2424;
   padding-bottom: 3px;
   padding-top: 3px;
-  img {
-    width: 60px;
-    height: 60px;
+  &__spotify-player {
     margin-left: 10px;
     margin-right: 15px;
   }
@@ -113,29 +111,37 @@ html, body {
   order: 4;
   position: absolute;
   display: flex;
-  left: 97px;
-  bottom: 0;
+  left: 184px;
+  bottom: 21px;
   
   &__playing {
-    width: 80px;
-    height: 50px;
-    margin-right: 4px;
-    border: none;
+    width: 45px;
+    height: 45px;
     outline: none;
     cursor: pointer;
-    background: url('../src/icon/icon_player.png') no-repeat -45px -10px;
-    background-size: 230%;
+    background: url('../src/icon/icon_player.png') no-repeat  -37px -2px;
+    background-size: 294%;
+    border-radius: 50%;
+    border: 1px solid white;
+    position: absolute;
+    bottom: -15px;
+    left: -63px;
+    transition: all 0.3s;
   }
 
   &__paused {
-    width: 80px;
-    height: 50px;
-    margin-right: 4px; 
-    border: none;
+    width: 45px;
+    height: 45px; 
     outline: none;
     cursor: pointer;
-    background: url('../src/icon/icon_player.png') no-repeat 5px -10px;
-    background-size: 230%;
+    background: url('../src/icon/icon_player.png') no-repeat -1px -2px;
+    background-size: 294%;
+    border-radius: 50%;
+    border: 1px solid white;
+    position: absolute;
+    bottom: -15px;
+    left: -63px;
+    transition: all 0.3s;
   }
 
   &__volume {
