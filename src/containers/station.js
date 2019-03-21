@@ -10,6 +10,7 @@ class Station extends Component {
   }
   render() {
     const { stations } = this.props
+    console.log(stations)
     return (
       <div>
         {
