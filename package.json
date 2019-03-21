@@ -5,8 +5,10 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "dateformat": "^3.0.3",
     "electron": "^4.0.6",
     "electron-store": "^2.0.0",
+    "hh-mm-ss": "^1.2.0",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",

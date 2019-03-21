@@ -15,10 +15,10 @@ class GetCtaegories extends Component {
   render() {
     const { categories } = this.props
     return (
-      <div className='wrapper'>
+      <div>
         <div className='category-container'>
           {categories.map((category) =>
-            <Category key={category.id} id={category.id} title={category.title} />
+            <Category key={category.id} category={category} />
           )}
         </div>
       </div>

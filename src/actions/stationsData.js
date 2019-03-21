@@ -1,12 +1,13 @@
 import request from "./request"; 
-// import Cookies from "js-cookie";
+import spotifyRequest from './spotifyRequest'
 
 export const STATIONS_DATA = "STATIONS_DATA";
 export const STATION_DATA = "STATION_DATA";
-export const SONG_DATA = "SONG_DATA";
+export const STATIONS_HISTORY_DATA = "STATIONS_HISTORY_DATA";
+export const PROGRESS_BAR_DATA = 'PROGRESS_BAR_DATA';
+export const SPOTIFY_URL = 'SPOTIFY_URL';
 
-
-const responseData = res => ({
+const responseStationsData = res => ({
   type: STATIONS_DATA,
   payload: res.data
 });
@@ -16,10 +17,27 @@ const setData = stationData => ({
   payload: stationData
 });
 
-const songData = songData => ({
-  type: SONG_DATA,
-  payload: songData.data
+const stationHistoryData = data => ({
+  type: STATIONS_HISTORY_DATA,
+  payload: data.data
 });
+
+const progressData = data => ({
+  type: PROGRESS_BAR_DATA,
+  payload: data
+});
+
+const spotifyTrackData = data => ({
+  type: SPOTIFY_URL,
+  payload: data
+})
+
+
+export const progressBarData = data => {
+  return dispatch => {
+    dispatch(progressData(data));
+  }
+};
 
 export const stationData = stationData => {
   return dispatch => {
@@ -30,9 +48,9 @@ export const stationData = stationData => {
 export const stationsData = id => {
   return dispatch => {
     request()
-      .get('category/'+id+'/stations')
+      .get(`category/${id}/stations`)
       .then((res) => {
-        dispatch(responseData(res));
+        dispatch(responseStationsData(res));
       })
       .catch((error) => {
         console.log(error);
@@ -40,13 +58,27 @@ export const stationsData = id => {
     };
 };
 
-export const songHistory = id => {
+export const stationHistory = id => {
   return dispatch => {
     request()
-      .get('station/60802/song_history')
+      .get(`station/${id}/song_history`)
       .then((res) => {
-        console.log(res.data)
-        dispatch(songData(res));
+        dispatch(stationHistoryData(res));
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    };
+};
+
+
+export const spotifyTrack = id => {
+  console.log(id)
+  return dispatch => {
+    spotifyRequest()
+      .get(`tracks/${id}`)
+      .then((res) => {
+        dispatch(spotifyTrackData(res.data.preview_url));
       })
       .catch((error) => {
         console.log(error);

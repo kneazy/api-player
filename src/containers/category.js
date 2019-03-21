@@ -7,10 +7,11 @@ class Category extends Component {
     this.props.history.push(/stations/+id)
   }
   render() {
-    const {title, id} = this.props
+    const {title, id, description} = this.props.category
     return (
       <div onClick={this.handleClick.bind(this, id)} className='category'>
-        <h3>{title}</h3>
+        <h3>{id}. {title}</h3>
+        <p>{description}</p>
       </div>
     );
   }
