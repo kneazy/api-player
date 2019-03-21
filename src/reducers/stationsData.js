@@ -1,8 +1,7 @@
 import { STATIONS_DATA,
          STATION_DATA, 
          PROGRESS_BAR_DATA,
-         STATIONS_HISTORY_DATA,
-         SPOTIFY_URL } from "../actions/stationsData";
+         STATIONS_HISTORY_DATA } from "../actions/stationsData";
 
 
 const initialState = {
@@ -10,7 +9,6 @@ const initialState = {
   stationData: [],
   progressData: 0,
   stationHistoryData:[],
-  spotifyUrlData: ''
 };
 
 const stationsData = (state = initialState, action) => {
@@ -34,11 +32,6 @@ const stationsData = (state = initialState, action) => {
       return {
         ...state,
         stationHistoryData: action.payload
-      }
-    case SPOTIFY_URL:
-      return {
-        ...state,
-        spotifyUrlData: action.payload
       }
     default:
       return state;

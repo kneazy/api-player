@@ -132,7 +132,6 @@ class App extends Component {
 const putStateToProps = state => {
   return {
     station: state.stationsState.stationData, 
-    spotifyUrl: state.stationsState.spotifyUrlData
   };
 };
 

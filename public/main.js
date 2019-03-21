@@ -6,7 +6,7 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 900,
+    width: 600,
     height: 680,
     'webPreferences': {
       'webSecurity': false,
@@ -15,7 +15,7 @@ function createWindow() {
   });
   mainWindow.loadURL('http://localhost:3000');
   mainWindow.on('closed', () => mainWindow = null);
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
   
 }
 app.on('ready', createWindow);
