@@ -4,7 +4,20 @@
 }
 html, body {
   height: 100%;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+      background: #000000;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      box-shadow: inset 0 0 6px rgba(185, 185, 185, 0.692); 
+  }
 }
+
 .wrapper {
   min-height: 100%;
   height: 100%;
@@ -34,6 +47,7 @@ html, body {
     text-decoration: none;
     color: white;
   }
+  
 }
 
 .songs-items {
@@ -46,6 +60,20 @@ html, body {
   max-height: 70vh;
   overflow-y: auto;
   transition: all 0.3s ease;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(99, 97, 97, 0.3); 
+ 
+  }
+
+  &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      box-shadow: inset 0 0 6px rgba(202, 199, 199, 0.5); 
+  }
+  
 }
 
 .is-close {
@@ -269,10 +297,7 @@ html, body {
 .station {
   display: flex;
   margin-bottom: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
   padding-bottom: 3px;
-  padding-top: 3px;
   border-bottom: 1px solid darkslategray;
   background: linear-gradient(to right, #000000, #315766);
   h5 {
