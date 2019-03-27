@@ -1,13 +1,15 @@
 {
   "name": "api-player",
+  "author": "DigitalKwarts",
   "version": "0.1.0",
-  "main": "public/main.js",
+  "main": "public/electron.js",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
     "dateformat": "^3.0.3",
-    "electron": "^4.0.6",
+    "electron-packager": "^13.1.1",
     "electron-store": "^2.0.0",
+    "foreman": "^3.0.1",
     "hh-mm-ss": "^1.2.0",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.11",
@@ -23,19 +25,34 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "dev": "nf start",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "electron": "electron ."
+    "electron": "electron .",
+    "ebuild": "yarn build && node_modules/.bin/build",
+    "package-win": "electron-packager . --platform=win32 --arch=x64 --asar",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --asar"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "description": "React Electron API-Player App",
+  "homepage": "./",
+  "build": {
+    "productName": "React Electron API-Player",
+    "appId": "com.reactbits.apiplayer",
+    "electronVersion": "1.7.10",
+    "files": [
+      "**/*", "build/icon.*"
+    ]
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "electron": "^4.1.1",
+    "electron-builder": "^20.39.0"
+  }
 }
